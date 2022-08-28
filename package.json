@@ -11,7 +11,11 @@
     "prettify": "prettier --write",
     "eslint": "eslint --ext js,ts,tsx",
     "postinstall": "yarn build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "checkTs": "tsc --noEmit",
+    "lint": "yarn run eslint src",
+    "lint:fix": "yarn run eslint --fix src",
+    "lint:css": "stylelint src/**/*.css"
   },
   "devDependencies": {
     "@types/compression": "^1.7.2",
@@ -37,6 +41,8 @@
     "envalid": "^7.3.1",
     "express": "^4.18.1",
     "helmet": "^6.0.0",
+    "joi": "^17.6.0",
+    "lint-staged": "^13.0.3",
     "module-alias": "^2.2.2",
     "mongoose": "^6.5.3",
     "morgan": "^1.10.0"
