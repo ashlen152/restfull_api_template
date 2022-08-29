@@ -3,11 +3,11 @@ import mongoose from 'mongoose'
 import compression from 'compression'
 import cors from 'cors'
 import morgan from 'morgan'
-import Controller from '@/utils/interfaces/controller.interface'
-import ErrorMiddlware from '@/middleware/error.middleware'
+import Controller from '@utils/interfaces/controller.interface'
+import ErrorMiddlware from '@middleware/error.middleware'
 import helmet from 'helmet'
 import path from 'path'
-import { MONGO_URL, MONGO_USER, MONGO_PASS } from 'config'
+import { MONGO_URL, MONGO_USER, MONGO_PASS } from './config'
 
 class App {
   public express: Application
@@ -50,11 +50,11 @@ class App {
         }`,
         {
           directConnection: true,
-          serverSelectionTimeoutMS: 2000,
-          tlsAllowInvalidHostnames: true,
-          tls: true,
-          tlsCAFile: path.join(`${__dirname}/CA.pem`),
-          appName: 'mongosh'
+          serverSelectionTimeoutMS: 2000
+          // tlsAllowInvalidHostnames: true,
+          // tls: true,
+          // tlsCAFile: path.join(`${__dirname}/CA.pem`),
+          // appName: 'mongosh'
         }
       )
       .then(() => console.log('connected'))
@@ -65,6 +65,7 @@ class App {
   }
 
   public listen(): void {
+    console.log(this.port)
     this.express.listen(this.port, () => {
       console.log(`App listening on port ${this.port}`)
     })

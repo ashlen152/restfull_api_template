@@ -1,9 +1,10 @@
 import 'dotenv/config'
 import 'module-alias/register'
-import validateEnv from '@/utils/validateEnv'
+import { PORT } from './config'
+import validateEnv from '@utils/validateEnv'
 import App from './app'
-import { PORT } from 'config'
 
 validateEnv()
 
 const app = new App([], Number(PORT))
+app.listen()

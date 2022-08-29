@@ -55,8 +55,8 @@
     ]
   },
   "_moduleAliases": {
-    "@/resources": "dist/resources",
-    "@/utils": "dist/utils",
-    "@/middleware": "dist/middleware"
+    "@resources": "dist/resources",
+    "@utils": "dist/utils",
+    "@middleware": "dist/middleware"
   }
 }
